@@ -9,17 +9,22 @@ FROM debian:latest
 
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
+ENV JENKINS_UC http://updates.jenkins.io/
+
 # Update & install packages for jenkins
 RUN apt-get update && \
-    apt-get install -y wget && \
+    apt-get install -y unzip wget curl && \
     wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - && \
     sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
     apt-get update && \
     apt-get install -y jenkins
 
-#Configure graylog
-#ADD server.conf /etc/graylog/server/
+#Configure plugins
+#ADD plugins.sh /usr/local/bin/
+#ADD plugins.txt /usr/share/jenkins/plugins.txt
+#RUN bash /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
 EXPOSE 8080
 
-CMD ["graylogctl", "run"]
+#CMD ["java", "-jar", "/usr/share/jenkins/jenkins.war", "--argumentsRealm.passwd.hihouhou=hihouhou", "--argumentsRealm.roles.hihouhou=admin"]
+CMD ["java", "-jar", "/usr/share/jenkins/jenkins.war"]
