@@ -10,7 +10,7 @@ FROM debian:latest
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
 ENV JENKINS_UC http://updates.jenkins.io/
-ENV JENKINS_VERSION untagged-e3a154d27f5bd99802eb
+ENV JENKINS_VERSION jenkins-2.214
 
 # Update & install packages for jenkins
 RUN apt-get update && \
