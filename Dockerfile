@@ -14,9 +14,9 @@ ENV JENKINS_VERSION jenkins-2.233
 
 # Update & install packages for jenkins
 RUN apt-get update && \
-    apt-get install -y gnupg unzip wget curl git && \
-    wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - && \
-    sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
+    apt-get install -y gnupg unzip openjdk-11-jdk wget curl git && \
+    wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - && \
+    sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
     apt-get update && \
     apt-get install -y jenkins
 
