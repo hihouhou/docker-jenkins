@@ -10,7 +10,7 @@ FROM debian:latest
 MAINTAINER hihouhou < hihouhou@hihouhou.com >
 
 ENV JENKINS_UC http://updates.jenkins.io/
-ENV JENKINS_VERSION 2.372
+ENV JENKINS_VERSION 2.361.2
 
 # Update & install packages for jenkins
 RUN apt-get update && \
