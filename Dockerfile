@@ -14,9 +14,9 @@ ENV JENKINS_VERSION jenkins-2.459
 
 # Update & install packages for jenkins
 RUN apt-get update && \
-    apt-get install -y gnupg unzip openjdk-11-jdk wget curl git && \
-    wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - && \
-    sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > /etc/apt/sources.list.d/jenkins.list' && \
+    apt-get install -y gnupg unzip openjdk-17-jdk wget curl git && \
+    wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian/jenkins.io-2023.key && \
+    echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" https://pkg.jenkins.io/debian binary/ | tee /etc/apt/sources.list.d/jenkins.list > /dev/null && \
     apt-get update && \
     apt-get install -y jenkins
 
