@@ -9,8 +9,8 @@ FROM debian:latest
 
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
-ENV JENKINS_UC http://updates.jenkins.io/
-ENV JENKINS_VERSION jenkins-2.471
+ENV JENKINS_UC=http://updates.jenkins.io/
+ENV JENKINS_VERSION=jenkins-2.471
 
 # Update & install packages for jenkins
 RUN apt-get update && \
