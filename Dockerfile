@@ -10,7 +10,7 @@ FROM debian:latest
 LABEL org.opencontainers.image.authors="hihouhou < hihouhou@hihouhou.com >"
 
 ENV JENKINS_UC=http://updates.jenkins.io/
-ENV JENKINS_VERSION=jenkins-2.519
+ENV JENKINS_VERSION=jenkins-2.520
 
 # Update & install packages for jenkins
 RUN apt-get update && \
